@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha de Frutas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Tela de Seleção de Jogadores -->
+    <div class="screen" id="player-setup">
+        <div class="container">
+            <h1>👾 Batalha de Frutas 🍉</h1>
+            
+            <div class="player-form">
+                <div class="input-group">
+                    <label>Jogador 1:</label>
+                    <input type="text" id="player1-name" placeholder="Nome do Jogador 1">
+                </div>
+                
+                <div class="mode-select">
+                    <button class="mode-btn active" data-mode="1v1">1 vs 1</button>
+                    <button class="mode-btn" data-mode="cpu">vs CPU</button>
+                </div>
+                
+                <button class="btn next-btn" id="start-battle">Começar!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de Seleção de Frutas -->
+    <div class="screen hidden" id="fruit-select">
+        <div class="container">
+            <h2>Escolha suas 3 Frutas</h2>
+            <div class="fruit-grid" id="fruit-selection"></div>
+            <div class="selected-fruits">
+                <h3>Selecionadas: <span id="selected-count">0/3</span></h3>
+                <div id="selected-list"></div>
+            </div>
+            <button class="btn" id="confirm-selection" disabled>Confirmar</button>
+        </div>
+    </div>
+
+    <!-- Tela de Batalha -->
+    <div class="screen hidden" id="battle-screen">
+        <div class="battle-container">
+            <div class="battle-header">
+                <div class="player-info">
+                    <div class="player1-info">
+                        <h3 id="p1-name"></h3>
+                        <div class="status-bars">
+                            <div class="hp-bar"></div>
+                            <div class="energy-bar"></div>
+                        </div>
+                    </div>
+                    <div class="vs-label">VS</div>
+                    <div class="player2-info">
+                        <h3 id="p2-name"></h3>
+                        <div class="status-bars">
+                            <div class="hp-bar"></div>
+                            <div class="energy-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="battle-arena">
+                <div class="fruit-player" id="player1-fruit">
+                    <img src="assets/fruits/normal/apple.png" class="fruit-img">
+                    <div class="status-effects"></div>
+                </div>
+                <div class="battle-effects"></div>
+                <div class="fruit-player" id="player2-fruit">
+                    <img src="assets/fruits/normal/orange.png" class="fruit-img">
+                    <div class="status-effects"></div>
+                </div>
+            </div>
+
+            <div class="battle-controls">
+                <div class="action-buttons">
+                    <button class="btn battle-btn" data-action="attack">⚔️ Ataque</button>
+                    <button class="btn battle-btn" data-action="skill">🔮 Habilidade</button>
+                    <button class="btn battle-btn" data-action="defend">🛡️ Defender</button>
+                    <button class="btn battle-btn" data-action="switch">🔄 Trocar</button>
+                </div>
+                <div class="battle-log">
+                    <div class="log-content" id="battle-log"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/players.js"></script>
+    <script src="js/battle-system.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
